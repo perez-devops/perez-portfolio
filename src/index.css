@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+
+  --font-sans: Inter, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --animate-spin-slow: spin 10s linear infinite;
+}
+
+:root {
+  /* Dark Mode (Default) */
+  --bg: #0a0a0a;
+  --surface: #1a1a1a;
+  --primary: #0affff;
+  --secondary: #bd00ff;
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+:root.light {
+  /* Light Mode */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --primary: #0891b2;
+  /* Cyan-600 */
+  --secondary: #7c3aed;
+  /* Violet-600 */
+  --text-main: #0f172a;
+  /* Slate-900 */
+  --text-muted: #64748b;
+  /* Slate-500 */
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased overflow-x-hidden selection:bg-primary selection:text-black;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
