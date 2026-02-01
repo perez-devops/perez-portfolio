@@ -16,9 +16,15 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-        alert("Message sent! (Simulation)");
+
+        const recipient = "godspoweremmanuel304@gmail.com";
+        const subject = `Portfolio Inquiry from ${formData.name}`;
+        const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+
+        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
+
         setFormData({ name: '', email: '', message: '' });
     };
 
@@ -36,7 +42,7 @@ const Contact = () => {
 
     return (
         <section className="py-24 bg-surface/50 relative overflow-hidden">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -62,13 +68,13 @@ const Contact = () => {
                         <div className="space-y-6">
                             {contactInfo.map((info) => (
                                 <div key={info.label} className="flex items-center justify-between bg-background/50 p-4 rounded-xl border border-border hover:border-primary/50 transition-all group">
-                                    <div className="flex items-center gap-4">
-                                        <div className="text-primary p-2 bg-primary/10 rounded-lg group-hover:bg-primary group-hover:text-background transition-colors">
+                                    <div className="flex items-center gap-4 min-w-0">
+                                        <div className="text-primary p-2 bg-primary/10 rounded-lg group-hover:bg-primary group-hover:text-background transition-colors shrink-0">
                                             {info.icon}
                                         </div>
-                                        <div>
+                                        <div className="min-w-0">
                                             <p className="text-sm text-text-muted">{info.label}</p>
-                                            <p className="text-text-main font-medium">{info.value}</p>
+                                            <p className="text-text-main font-medium truncate md:whitespace-normal md:break-all">{info.value}</p>
                                         </div>
                                     </div>
                                     <button
@@ -103,7 +109,7 @@ const Contact = () => {
                         </div>
 
                         {/* Terminal Body */}
-                        <div className="p-6">
+                        <div className="p-4 md:p-6">
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className="block text-gray-500 mb-1">

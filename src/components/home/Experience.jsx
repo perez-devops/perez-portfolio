@@ -63,14 +63,14 @@ const ExperienceCard = ({ exp, index }) => {
             <div className="w-full md:w-5/12 ml-12 md:ml-0 pl-4 md:pl-0">
                 <div className="bg-surface/50 p-6 rounded-xl border border-border hover:border-primary/50 transition-colors backdrop-blur-sm group-hover:bg-surface/80">
                     <div className={`flex items-center gap-2 text-primary mb-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                        <Briefcase size={16} />
-                        <h3 className="font-bold text-xl">{exp.role}</h3>
+                        <Briefcase size={16} className="shrink-0" />
+                        <h3 className="font-bold text-xl truncate">{exp.role}</h3>
                     </div>
                     <div className={`flex items-center gap-2 text-text-muted text-sm mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                        <Calendar size={14} />
-                        <span>{exp.period}</span>
-                        <span className="mx-2">|</span>
-                        <span>{exp.company}</span>
+                        <Calendar size={14} className="shrink-0" />
+                        <span className="shrink-0">{exp.period}</span>
+                        <span className="mx-2 shrink-0">|</span>
+                        <span className="truncate">{exp.company}</span>
                     </div>
                     <p className="text-text-muted mb-4">{exp.description}</p>
                     <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>

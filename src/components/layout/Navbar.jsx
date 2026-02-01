@@ -70,21 +70,44 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed inset-0 bg-background/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center space-y-8 md:hidden"
+                        className="fixed inset-0 bg-background/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center space-y-8 md:hidden border-l border-primary/20"
                     >
-                        {navLinks.map((link) => (
-                            <Link
+                        <div className="absolute top-6 right-6 p-2 rounded-full border border-primary/20 bg-primary/5">
+                            <X size={28} className="text-primary" onClick={() => setIsOpen(false)} />
+                        </div>
+
+                        {navLinks.map((link, index) => (
+                            <motion.div
                                 key={link.name}
-                                to={link.path}
-                                onClick={() => setIsOpen(false)}
-                                className={twMerge(
-                                    "text-2xl font-bold transition-colors hover:text-primary",
-                                    location.pathname === link.path ? "text-primary" : "text-text-muted"
-                                )}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.1 }}
                             >
-                                {link.name}
-                            </Link>
+                                <Link
+                                    to={link.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className={twMerge(
+                                        "text-4xl font-black font-mono tracking-tighter uppercase transition-all duration-300 relative group",
+                                        location.pathname === link.path ? "text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary" : "text-text-muted hover:text-text-main"
+                                    )}
+                                >
+                                    <span className="absolute -left-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-primary text-sm font-light">
+                                        {'//'}
+                                    </span>
+                                    {link.name}
+                                    <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300"></span>
+                                </Link>
+                            </motion.div>
                         ))}
+
+                        <div className="absolute bottom-10 text-center space-y-2">
+                            <p className="text-xs font-mono text-primary/50 tracking-[0.2em]">SYSTEM.NAV.MOBILE_V2</p>
+                            <div className="flex gap-1 justify-center">
+                                {[...Array(5)].map((_, i) => (
+                                    <div key={i} className={`w-1 h-1 rounded-full ${i === 2 ? 'bg-primary' : 'bg-primary/20'}`} />
+                                ))}
+                            </div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

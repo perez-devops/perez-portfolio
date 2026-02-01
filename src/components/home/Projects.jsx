@@ -102,12 +102,12 @@ const TiltCard = ({ project }) => {
 
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent p-6 flex flex-col justify-end transform transition-all duration-300">
                 <div style={{ transform: "translateZ(50px)" }}>
-                    <div className="flex justify-between items-start mb-2">
-                        <div>
+                    <div className="flex justify-between items-start mb-2 min-w-0">
+                        <div className="min-w-0 pr-4">
                             <span className="text-primary text-xs font-bold tracking-wider uppercase mb-1 block">{project.category}</span>
-                            <h3 className="text-2xl font-bold text-text-main group-hover:text-primary transition-colors">{project.title}</h3>
+                            <h3 className="text-2xl font-bold text-text-main group-hover:text-primary transition-colors truncate">{project.title}</h3>
                         </div>
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 shrink-0">
                             <a href={project.links.repo} className="text-text-muted hover:text-text-main transition-colors"><Github size={20} /></a>
                             <a href={project.links.demo} className="text-text-muted hover:text-text-main transition-colors"><ExternalLink size={20} /></a>
                         </div>

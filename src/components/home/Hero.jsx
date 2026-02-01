@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Database, Code } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 
 const AnimatedSphere = () => {
     const sphereRef = useRef();
@@ -40,24 +41,19 @@ const Hero = () => {
     ];
 
     useEffect(() => {
-        // Start animation after mount
         const startTimeout = setTimeout(() => {
             setTypingState("visible");
         }, 500);
-
         return () => clearTimeout(startTimeout);
     }, []);
 
-    // Loop effect
     useEffect(() => {
         let timeout;
         if (typingState === "visible") {
-            // Wait 3 seconds, then untype
             timeout = setTimeout(() => {
                 setTypingState("exit");
             }, 3000);
         } else if (typingState === "exit") {
-            // Wait for untyping to finish, switch skill, then type again
             timeout = setTimeout(() => {
                 setSkillIndex((prev) => (prev + 1) % skills.length);
                 setTypingState("visible");
@@ -67,7 +63,7 @@ const Hero = () => {
     }, [typingState]);
 
     return (
-        <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-background">
+        <section className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-background py-20 md:py-0">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0">
                 <Canvas>
@@ -79,11 +75,12 @@ const Hero = () => {
             </div>
 
             {/* Content Overlay */}
-            <div className="relative z-10 container mx-auto px-6 text-center select-none">
+            <div className="relative z-10 container mx-auto px-6 text-center select-none pointer-events-none">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
+                    className="pointer-events-auto"
                 >
                     <h2 className="text-secondary font-mono text-xl md:text-2xl mb-4 tracking-widest uppercase font-bold">
                         Hi There!
@@ -140,7 +137,7 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.div
-                    className="flex flex-col md:flex-row gap-4 justify-center items-center"
+                    className="flex flex-col md:flex-row gap-4 justify-center items-center pointer-events-auto"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
@@ -154,7 +151,7 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.div
-                    className="mt-16 flex gap-6 justify-center text-text-muted"
+                    className="mt-16 flex gap-6 justify-center text-text-muted pointer-events-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}

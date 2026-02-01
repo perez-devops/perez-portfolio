@@ -108,7 +108,7 @@ In the end, color in branding is not just visual decoration. It’s a psychologi
         date: "Aug 30, 2024",
         readTime: "6 min read",
         tags: ["UX/UI", "Design", "Accessibility"],
-        image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
         content: `
 Dark mode has become a standard feature in modern digital products, offering visual comfort, reduced eye strain in low-light environments, and improved battery efficiency on some devices. However, designing for dark mode requires more than simply inverting colors.
 

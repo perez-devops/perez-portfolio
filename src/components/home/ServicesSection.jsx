@@ -49,7 +49,7 @@ const ServiceCard = ({ service, index }) => {
                 <div className="mb-6 text-primary p-3 bg-white/5 rounded-lg w-fit group-hover:scale-110 group-hover:bg-primary group-hover:text-black transition-all duration-300">
                     {service.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors break-words">
                     {service.title}
                 </h3>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
