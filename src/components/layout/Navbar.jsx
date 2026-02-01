@@ -70,7 +70,6 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         className="fixed inset-0 bg-background/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center space-y-8 md:hidden"
                     >
                         {navLinks.map((link) => (

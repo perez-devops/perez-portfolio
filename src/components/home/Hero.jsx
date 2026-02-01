@@ -2,7 +2,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Database, Code } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const AnimatedSphere = () => {
     const sphereRef = useRef();
@@ -29,6 +30,42 @@ const AnimatedSphere = () => {
 };
 
 const Hero = () => {
+    const [typingState, setTypingState] = useState("hidden");
+    const [skillIndex, setSkillIndex] = useState(0);
+    const skills = [
+        "Full Stack Developer",
+        "Graphic Designer",
+        "UI/UX Designer",
+        "Brand Strategist"
+    ];
+
+    useEffect(() => {
+        // Start animation after mount
+        const startTimeout = setTimeout(() => {
+            setTypingState("visible");
+        }, 500);
+
+        return () => clearTimeout(startTimeout);
+    }, []);
+
+    // Loop effect
+    useEffect(() => {
+        let timeout;
+        if (typingState === "visible") {
+            // Wait 3 seconds, then untype
+            timeout = setTimeout(() => {
+                setTypingState("exit");
+            }, 3000);
+        } else if (typingState === "exit") {
+            // Wait for untyping to finish, switch skill, then type again
+            timeout = setTimeout(() => {
+                setSkillIndex((prev) => (prev + 1) % skills.length);
+                setTypingState("visible");
+            }, 800);
+        }
+        return () => clearTimeout(timeout);
+    }, [typingState]);
+
     return (
         <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-background">
             {/* 3D Background */}
@@ -48,13 +85,55 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-primary font-mono text-lg mb-4 tracking-widest uppercase">
-                        Full Stack Developer & Graphic Designer
+                    <h2 className="text-secondary font-mono text-xl md:text-2xl mb-4 tracking-widest uppercase font-bold">
+                        Hi There!
                     </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-text-main via-primary to-secondary">
-                        The Perez Emmanuel<br />Building the Future.
+
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-text-main tracking-tight">
+                        My name is <span className="text-primary">Godspower Emmanuel</span>.
                     </h1>
-                    <p className="text-text-muted max-w-2xl mx-auto mb-10 text-lg">
+
+                    <div className="h-20 md:h-24 flex items-center justify-center">
+                        <span className="text-3xl md:text-5xl font-bold text-text-muted mr-4">I am a</span>
+                        <motion.span
+                            key={skillIndex} // Key change triggers re-render for new text
+                            className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+                            initial="hidden"
+                            animate={typingState}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.08,
+                                    }
+                                },
+                                exit: {
+                                    opacity: 0,
+                                    transition: {
+                                        staggerChildren: 0.05,
+                                        staggerDirection: -1
+                                    }
+                                }
+                            }}
+                        >
+                            {Array.from(skills[skillIndex]).map((char, i) => (
+                                <motion.span
+                                    key={`${skillIndex}-${i}`}
+                                    variants={{
+                                        hidden: { opacity: 0, x: -10 },
+                                        visible: { opacity: 1, x: 0 },
+                                        exit: { opacity: 0, x: 10 }
+                                    }}
+                                    className="inline-block"
+                                >
+                                    {char === ' ' ? '\u00A0' : char}
+                                </motion.span>
+                            ))}
+                        </motion.span>
+                    </div>
+
+                    <p className="text-text-muted max-w-2xl mx-auto mb-10 text-lg mt-4">
                         Bridging the gap between functional code and stunning visuals.
                         Crafting immersive digital experiences through creative design and robust engineering.
                     </p>
@@ -66,9 +145,9 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
                 >
-                    <button className="px-8 py-4 bg-primary text-background font-bold rounded-full flex items-center gap-2 hover:bg-text-main hover:text-background transition-all shadow-[0_0_20px_rgba(10,255,255,0.3)] hover:shadow-[0_0_40px_rgba(10,255,255,0.5)]">
+                    <Link to="/contact" className="px-8 py-4 bg-primary text-background font-bold rounded-full flex items-center gap-2 hover:bg-text-main hover:text-background transition-all shadow-[0_0_20px_rgba(10,255,255,0.3)] hover:shadow-[0_0_40px_rgba(10,255,255,0.5)]">
                         Start a Project <ArrowRight size={20} />
-                    </button>
+                    </Link>
                     <button className="px-8 py-4 border border-border text-text-main font-bold rounded-full flex items-center gap-2 hover:bg-text-main/10 transition-all backdrop-blur-sm">
                         Download CV <Download size={20} />
                     </button>
@@ -80,8 +159,8 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
                 >
-                    <a href="#" className="hover:text-primary transition-colors"><Github size={24} /></a>
-                    <a href="#" className="hover:text-primary transition-colors"><Linkedin size={24} /></a>
+                    <a href="https://github.com/perez-devops" className="hover:text-primary transition-colors"><Github size={24} /></a>
+                    <a href="https://www.linkedin.com/in/emmanuel-godspower-933ba0290/" className="hover:text-primary transition-colors"><Linkedin size={24} /></a>
                     <a href="#" className="hover:text-primary transition-colors"><Database size={24} /></a>
                     <a href="#" className="hover:text-primary transition-colors"><Code size={24} /></a>
                 </motion.div>
