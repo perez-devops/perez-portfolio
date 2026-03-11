@@ -1,0 +1,213 @@
+/* =========================================================
+   PEREZ.PORTFOLIO — ABOUT PAGE STYLES
+   ========================================================= */
+
+/* ─── About Image / Profile Block ────────────────────────── */
+.about-image-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-mid) 50%, #6366F1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.2);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+
+.about-image-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-md);
+  min-width: 160px;
+}
+
+.about-image-badge .badge-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent-mid);
+  line-height: 1;
+}
+
+.about-image-badge .badge-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ─── About Text ─────────────────────────────────────────── */
+.about-lead {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.75;
+  color: var(--text-sub);
+  margin-bottom: 28px;
+}
+
+.about-lead strong { color: var(--text); font-weight: 600; }
+
+/* ─── Values Grid ────────────────────────────────────────── */
+.value-card {
+  padding: 24px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  border-color: var(--accent-mid);
+  background: var(--accent-light);
+}
+
+.value-card h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.value-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── Timeline ────────────────────────────────────────────── */
+.timeline { padding-left: 32px; border-left: 2px solid var(--border); }
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.visible { opacity: 1; transform: none; }
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent-mid);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent-mid);
+}
+
+.timeline-period {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-mid);
+  margin-bottom: 6px;
+}
+
+.timeline-item h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+.timeline-item .company { font-size: 0.88rem; color: var(--text-sub); margin-bottom: 10px; }
+.timeline-item p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
+
+/* ─── Skills Grid ────────────────────────────────────────── */
+.skill-group { margin-bottom: 36px; }
+.skill-group-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.skill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  transition: var(--transition);
+}
+
+.skill-tag:hover {
+  border-color: var(--accent-mid);
+  color: var(--accent-mid);
+  background: var(--accent-light);
+}
+
+.skill-icon { font-size: 1rem; line-height: 1; }
+
+/* ─── Stats Row ──────────────────────────────────────────── */
+.stat-card {
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  border-color: var(--accent-mid);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent-mid);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .about-image { max-width: 360px; }
+  .timeline { padding-left: 28px; }
+}
+
+@media (max-width: 768px) {
+  .about-image-badge { right: 16px; }
+  .about-image { max-width: 100%; }
+}

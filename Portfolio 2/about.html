@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Godspower Emmanuel — Full Stack Engineer, Graphic Designer & UI/UX Architect based in Lagos, Nigeria."
+    />
+    <title>About — Perez.portfolio</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      /* =========================================================
+   PEREZ.PORTFOLIO — GLOBAL STYLES
+   Premium Editorial Portfolio · Built with pure CSS
+   ========================================================= */
+
+      @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
+
+      /* ─── Design Tokens ───────────────────────────────────── */
+      :root {
+        --bg: #f8f7f4;
+        --bg-alt: #efede7;
+        --bg-card: #ffffff;
+        --bg-glass: rgba(248, 247, 244, 0.78);
+        --border: rgba(0, 0, 0, 0.08);
+        --border-strong: rgba(0, 0, 0, 0.16);
+
+        --text: #1a1916;
+        --text-sub: #5c5a54;
+        --text-muted: #9b9890;
+        --text-inv: #f8f7f4;
+
+        --accent: #3730a3;
+        --accent-mid: #4f46e5;
+        --accent-light: #eef2ff;
+        --accent-glow: rgba(79, 70, 229, 0.15);
+
+        --success: #059669;
+        --warning: #d97706;
+
+        --shadow-sm:
+          0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-md:
+          0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+        --shadow-lg:
+          0 16px 48px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.12);
+
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+        --radius-xl: 32px;
+        --radius-full: 9999px;
+
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        --font-display: "Bricolage Grotesque", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+
+        --nav-h: 72px;
+      }
+
+      [data-theme="dark"] {
+        --bg: #0d0d11;
+        --bg-alt: #131318;
+        --bg-card: #18181f;
+        --bg-glass: rgba(13, 13, 17, 0.82);
+        --border: rgba(255, 255, 255, 0.07);
+        --border-strong: rgba(255, 255, 255, 0.14);
+
+        --text: #f2f0ec;
+        --text-sub: #a8a5a0;
+        --text-muted: #6a6762;
+        --text-inv: #0d0d11;
+
+        --accent: #818cf8;
+        --accent-mid: #6366f1;
+        --accent-light: #1e1b4b;
+        --accent-glow: rgba(129, 140, 248, 0.12);
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+        --shadow-md:
+          0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
+        --shadow-lg:
+          0 16px 48px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.25);
+        --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.6);
+      }
+
+      /* ─── Reset & Base ────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--nav-h);
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        transition:
+          background-color 0.4s ease,
+          color 0.4s ease;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-family: inherit;
+      }
+
+      /* ─── Typography Scale ────────────────────────────────── */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--text);
+      }
+
+      .display-hero {
+        font-size: clamp(2.8rem, 6vw, 5.2rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+        font-family: var(--font-display);
+      }
+
+      .display-section {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        font-family: var(--font-display);
+      }
+
+      .text-accent {
+        color: var(--accent-mid);
+      }
+      .text-muted {
+        color: var(--text-muted);
+      }
+      .text-sub {
+        color: var(--text-sub);
+      }
+
+      /* ─── Custom Scrollbar ────────────────────────────────── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-strong);
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--text-muted);
+      }
+
+      /* ─── Selection ───────────────────────────────────────── */
+      ::selection {
+        background: var(--accent-glow);
+        color: var(--accent);
+      }
+
+      /* ─── Section Utilities ───────────────────────────────── */
+      .section-pad {
+        padding: 100px 0;
+      }
+      .section-pad-sm {
+        padding: 72px 0;
+      }
+
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-mid);
+        margin-bottom: 16px;
+      }
+
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--accent-mid);
+        border-radius: 2px;
+      }
+
+      .section-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0;
+      }
+
+      /* ─── Buttons ─────────────────────────────────────────── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: var(--accent-mid);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 2px solid transparent;
+        transition: var(--transition);
+        box-shadow: 0 4px 20px var(--accent-glow);
+        white-space: nowrap;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px var(--accent-glow);
+        color: #fff;
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: transparent;
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 2px solid var(--border-strong);
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--accent-mid);
+        color: var(--accent-mid);
+        transform: translateY(-2px);
+        background: var(--accent-light);
+      }
+
+      /* ─── Navbar ──────────────────────────────────────────── */
+      #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: var(--nav-h);
+        background: var(--bg-glass);
+        backdrop-filter: blur(20px) saturate(1.8);
+        -webkit-backdrop-filter: blur(20px) saturate(1.8);
+        border-bottom: 1px solid var(--border);
+        transition:
+          background 0.4s ease,
+          box-shadow 0.3s ease;
+      }
+
+      #navbar.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 32px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        transition: opacity var(--transition);
+      }
+      .nav-logo span {
+        color: var(--accent-mid);
+      }
+      .nav-logo small {
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--text-muted);
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-sub);
+        padding: 6px 14px;
+        border-radius: var(--radius-full);
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+        background: var(--bg-alt);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .theme-toggle {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-full);
+        border: 1.5px solid var(--border-strong);
+        background: var(--bg-alt);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--accent-mid);
+        background: var(--accent-light);
+      }
+
+      [data-theme="light"] .icon-moon {
+        display: block;
+      }
+      [data-theme="light"] .icon-sun {
+        display: none;
+      }
+      [data-theme="dark"] .icon-moon {
+        display: none;
+      }
+      [data-theme="dark"] .icon-sun {
+        display: block;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        background: var(--bg-alt);
+        border: 1.5px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .hamburger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: var(--transition);
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* ─── Mobile Menu ─────────────────────────────────────── */
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .mobile-menu.open {
+        transform: translateY(0);
+      }
+
+      .mobile-menu a {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        transition: var(--transition);
+      }
+
+      .mobile-menu a:hover,
+      .mobile-menu a.active {
+        color: var(--accent-mid);
+      }
+
+      /* ─── Footer ──────────────────────────────────────────── */
+      footer {
+        background: var(--bg-alt);
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 40px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .footer-copy {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .footer-link {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-full);
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .footer-link:hover {
+        color: var(--accent-mid);
+        border-color: var(--accent-mid);
+        background: var(--accent-light);
+      }
+
+      /* ─── Page Hero (inner pages) ─────────────────────────── */
+      .page-hero {
+        padding: 160px 0 80px;
+        background: var(--bg-alt);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 10% 50%,
+            var(--accent-glow) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(99, 102, 241, 0.06) 0%,
+            transparent 50%
+          );
+      }
+
+      /* ─── Scroll Reveal ───────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.12s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.24s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.36s;
+      }
+
+      /* ─── Animations ──────────────────────────────────────── */
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* ─── Section Header ──────────────────────────────────── */
+      .section-header {
+        margin-bottom: 56px;
+      }
+      .section-header p {
+        color: var(--text-sub);
+        font-size: 1.05rem;
+        margin-top: 12px;
+        max-width: 520px;
+      }
+
+      /* ─── Contact CTA Block ───────────────────────────────── */
+      .contact-cta {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-mid) 60%,
+          #6366f1 100%
+        );
+        border-radius: var(--radius-xl);
+        padding: 72px 80px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .contact-cta h2 {
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .contact-cta p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.05rem;
+        margin-bottom: 32px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ─── Responsive ──────────────────────────────────────── */
+      @media (max-width: 992px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .section-pad {
+          padding: 72px 0;
+        }
+        .contact-cta {
+          padding: 56px 32px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --nav-h: 64px;
+        }
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .display-hero {
+          font-size: 2.4rem;
+        }
+        .section-pad {
+          padding: 56px 0;
+        }
+        .contact-cta {
+          padding: 40px 24px;
+          border-radius: var(--radius-lg);
+        }
+      }
+
+      /* =========================================================
+   PEREZ.PORTFOLIO — ABOUT PAGE STYLES
+   ========================================================= */
+
+      /* ─── About Image / Profile Block ────────────────────────── */
+      .about-image-wrap {
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-image {
+        width: 100%;
+        max-width: 420px;
+        aspect-ratio: 4/5;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-mid) 50%,
+          #6366f1 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 6rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.2);
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-xl);
+      }
+
+      .about-image-badge {
+        position: absolute;
+        bottom: -16px;
+        right: -16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 16px 20px;
+        box-shadow: var(--shadow-md);
+        min-width: 160px;
+      }
+
+      .about-image-badge .badge-num {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--accent-mid);
+        line-height: 1;
+      }
+
+      .about-image-badge .badge-label {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      /* ─── About Text ─────────────────────────────────────────── */
+      .about-lead {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        line-height: 1.75;
+        color: var(--text-sub);
+        margin-bottom: 28px;
+      }
+
+      .about-lead strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* ─── Values Grid ────────────────────────────────────────── */
+      .value-card {
+        padding: 24px;
+        background: var(--bg-alt);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        transition: var(--transition);
+      }
+
+      .value-card:hover {
+        border-color: var(--accent-mid);
+        background: var(--accent-light);
+      }
+
+      .value-card h5 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .value-card p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* ─── Timeline ────────────────────────────────────────────── */
+      .timeline {
+        padding-left: 32px;
+        border-left: 2px solid var(--border);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 40px;
+        opacity: 0;
+        transform: translateX(-12px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -40px;
+        top: 4px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent-mid);
+        border: 3px solid var(--bg);
+        box-shadow: 0 0 0 2px var(--accent-mid);
+      }
+
+      .timeline-period {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent-mid);
+        margin-bottom: 6px;
+      }
+
+      .timeline-item h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .timeline-item .company {
+        font-size: 0.88rem;
+        color: var(--text-sub);
+        margin-bottom: 10px;
+      }
+      .timeline-item p {
+        font-size: 0.9rem;
+        color: var(--text-sub);
+        line-height: 1.65;
+      }
+
+      /* ─── Skills Grid ────────────────────────────────────────── */
+      .skill-group {
+        margin-bottom: 36px;
+      }
+      .skill-group-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .skill-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-sub);
+        transition: var(--transition);
+      }
+
+      .skill-tag:hover {
+        border-color: var(--accent-mid);
+        color: var(--accent-mid);
+        background: var(--accent-light);
+      }
+
+      .skill-icon {
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      /* ─── Stats Row ──────────────────────────────────────────── */
+      .stat-card {
+        text-align: center;
+        padding: 28px 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        transition: var(--transition);
+      }
+
+      .stat-card:hover {
+        border-color: var(--accent-mid);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--accent-mid);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+
+      .stat-label {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      /* ─── Responsive ─────────────────────────────────────────── */
+      @media (max-width: 992px) {
+        .about-image {
+          max-width: 360px;
+        }
+        .timeline {
+          padding-left: 28px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-image-badge {
+          right: 16px;
+        }
+        .about-image {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Work</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Navbar -->
+    <header id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"
+          >Perez<span>.</span><small>portfolio</small></a
+        >
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#projects">Work</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+          </button>
+          <button id="hamburger" class="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div
+          class="container"
+          style="
+            max-width: 1280px;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+          "
+        >
+          <span class="section-label">Who I Am</span>
+          <h1 class="display-hero" style="max-width: 680px">
+            Building at the intersection of
+            <span class="text-accent">code & craft.</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Bio Section -->
+      <section class="section-pad">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div class="row g-5 align-items-start">
+            <!-- Profile Image -->
+            <div class="col-lg-5 reveal">
+              <div class="about-image-wrap">
+                <div class="about-image">
+                  <img src="./Emmanuel.jpg" alt="" />
+                </div>
+                <div class="about-image-badge">
+                  <div class="badge-num" data-count="5" data-suffix="+">5+</div>
+                  <div class="badge-label">Years of expertise</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bio Text -->
+            <div class="col-lg-6 offset-lg-1">
+              <div class="reveal">
+                <span class="section-label">Biography</span>
+                <h2 class="display-section mb-4">Godspower Emmanuel</h2>
+                <p class="about-lead">
+                  I'm a
+                  <strong
+                    >Full Stack Engineer, Graphic Designer, and UI/UX
+                    Architect</strong
+                  >
+                  based in Lagos, Nigeria. I build purposeful digital products
+                  that sit at the rare intersection where robust engineering
+                  meets considered design.
+                </p>
+                <p
+                  style="
+                    font-size: 1rem;
+                    color: var(--text-sub);
+                    line-height: 1.8;
+                    margin-bottom: 20px;
+                  "
+                >
+                  My path into this field wasn't linear — I started with a deep
+                  love for visual art and typography before discovering that
+                  code gave me an entirely new dimension to work in. Today, I
+                  consider that cross-disciplinary background my greatest
+                  professional asset.
+                </p>
+                <p
+                  style="
+                    font-size: 1rem;
+                    color: var(--text-sub);
+                    line-height: 1.8;
+                    margin-bottom: 36px;
+                  "
+                >
+                  When I'm not shipping products, I'm writing about design
+                  systems, contributing to open-source, or mentoring junior
+                  developers navigating their early careers.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                  <a href="contact.html" class="btn-primary">Work With Me</a>
+                  <a href="#" class="btn-outline" download>Download CV</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="section-pad-sm" style="background: var(--bg-alt)">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div class="row g-3">
+            <div class="col-6 col-lg-3 reveal">
+              <div class="stat-card">
+                <div class="stat-num" data-count="5" data-suffix="+">5+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal reveal-delay-1">
+              <div class="stat-card">
+                <div class="stat-num" data-count="48" data-suffix="+">48+</div>
+                <div class="stat-label">Projects Delivered</div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal reveal-delay-2">
+              <div class="stat-card">
+                <div class="stat-num" data-count="32" data-suffix="+">32+</div>
+                <div class="stat-label">Happy Clients</div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal reveal-delay-3">
+              <div class="stat-card">
+                <div class="stat-num" data-count="3">3</div>
+                <div class="stat-label">Continents Served</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Philosophy -->
+      <section class="section-pad">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div
+            class="section-header reveal text-center"
+            style="max-width: 520px; margin: 0 auto 56px"
+          >
+            <span class="section-label" style="justify-content: center"
+              >My Philosophy</span
+            >
+            <h2 class="display-section">How I Work</h2>
+            <p style="margin: 0 auto">
+              A set of principles I return to on every project, regardless of
+              the brief or the budget.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal">
+              <div class="value-card">
+                <div style="font-size: 1.8rem; margin-bottom: 14px">🎯</div>
+                <h5>Purpose First</h5>
+                <p>
+                  Every design decision and line of code should serve a clear
+                  user need. I start with the 'why' before touching the 'how'.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+              <div class="value-card">
+                <div style="font-size: 1.8rem; margin-bottom: 14px">⚡</div>
+                <h5>Performance Matters</h5>
+                <p>
+                  A beautiful interface that's slow isn't finished. I obsess
+                  over load times, accessibility scores, and Core Web Vitals.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+              <div class="value-card">
+                <div style="font-size: 1.8rem; margin-bottom: 14px">🤝</div>
+                <h5>Radical Clarity</h5>
+                <p>
+                  I communicate with honesty and directness. Clients always know
+                  where we stand — no jargon, no surprises.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+              <div class="value-card">
+                <div style="font-size: 1.8rem; margin-bottom: 14px">📐</div>
+                <h5>Systems Thinking</h5>
+                <p>
+                  I design for scalability — building components, patterns, and
+                  codebases that grow gracefully and remain maintainable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Work Experience -->
+      <section class="section-pad">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div class="row g-5">
+            <div class="col-lg-8 reveal">
+              <span class="section-label">Experience</span>
+              <h2 class="display-section mb-5">Work Experience</h2>
+              <div class="timeline">
+                <div class="timeline-item visible">
+                  <span class="timeline-period">Present</span>
+                  <h4>Google Developer Lead</h4>
+                  <p class="company">Google</p>
+                  <p>
+                    Leading developer community initiatives, mentoring developers, and advocating for modern web and cloud technologies.
+                  </p>
+                </div>
+                <div class="timeline-item visible">
+                  <span class="timeline-period">Present</span>
+                  <h4>Founder & Developer</h4>
+                  <p class="company">Unicaba</p>
+                  <p>
+                    Founded Unicaba, a student marketplace for fast goods and services provided by students in and around campus.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Education & Recognition -->
+      <section class="section-pad" style="background: var(--bg-alt)">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div class="row g-5">
+            <div class="col-lg-6 reveal">
+              <span class="section-label">Education</span>
+              <h2 class="display-section mb-5">Academic Background</h2>
+              <div class="timeline">
+                <div class="timeline-item visible">
+                  <span class="timeline-period">2023 — 2027 (Expected)</span>
+                  <h4>B.Sc. Computer Science</h4>
+                  <p class="company">Oduduwa University, Ile-Ife</p>
+                  <p>
+                    Currently pursuing a degree with a focus on software engineering and
+                    human-computer interaction.
+                  </p>
+                </div>
+                <div class="timeline-item visible">
+                  <span class="timeline-period">2021</span>
+                  <h4>Google UX Design Certificate</h4>
+                  <p class="company">Google · Coursera</p>
+                  <p>
+                    Completed the professional certification covering end-to-end
+                    UX research, wireframing, prototyping, and user testing
+                    methodologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 reveal reveal-delay-2">
+              <span class="section-label">Recognition</span>
+              <h2 class="display-section mb-5">Awards & Features</h2>
+              <div style="display: flex; flex-direction: column; gap: 16px">
+                <div
+                  style="
+                    padding: 20px 22px;
+                    background: var(--bg-card);
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius-md);
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                  "
+                >
+                  <div style="font-size: 1.6rem; flex-shrink: 0">🏆</div>
+                  <div>
+                    <strong style="font-size: 0.95rem; font-weight: 700"
+                      >Awwwards Site of the Day</strong
+                    >
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--text-muted);
+                        margin: 0;
+                      "
+                    >
+                      Recognized for outstanding UI/UX design · 2024
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    padding: 20px 22px;
+                    background: var(--bg-card);
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius-md);
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                  "
+                >
+                  <div style="font-size: 1.6rem; flex-shrink: 0">🌟</div>
+                  <div>
+                    <strong style="font-size: 0.95rem; font-weight: 700"
+                      >Featured on CSS Design Awards</strong
+                    >
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--text-muted);
+                        margin: 0;
+                      "
+                    >
+                      Selected for excellence in web design · 2023
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    padding: 20px 22px;
+                    background: var(--bg-card);
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius-md);
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                  "
+                >
+                  <div style="font-size: 1.6rem; flex-shrink: 0">📰</div>
+                  <div>
+                    <strong style="font-size: 0.95rem; font-weight: 700"
+                      >Smashing Magazine Contributor</strong
+                    >
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--text-muted);
+                        margin: 0;
+                      "
+                    >
+                      Published articles on design systems · 2023–2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section-pad">
+        <div class="container" style="max-width: 1280px; padding: 0 32px">
+          <div class="section-header reveal">
+            <span class="section-label">Expertise</span>
+            <h2 class="display-section">Skills & Tools</h2>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4 reveal">
+              <div class="skill-group">
+                <p class="skill-group-label">Frontend</p>
+                <div class="skill-grid">
+                  <span class="skill-tag"
+                    ><span class="skill-icon">⚛️</span>React</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">▲</span>Next.js</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🎨</span>Tailwind CSS</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🔷</span>TypeScript</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🌐</span>HTML & CSS</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 reveal reveal-delay-1">
+              <div class="skill-group">
+                <p class="skill-group-label">Backend</p>
+                <div class="skill-grid">
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🟢</span>Node.js</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🐍</span>Python</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🗄️</span>PostgreSQL</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🔴</span>MongoDB</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">☁️</span>AWS</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 reveal reveal-delay-2">
+              <div class="skill-group">
+                <p class="skill-group-label">Design</p>
+                <div class="skill-grid">
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🖌️</span>Figma</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🖼️</span>Illustrator</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">📸</span>Photoshop</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">🎬</span>After Effects</span
+                  >
+                  <span class="skill-tag"
+                    ><span class="skill-icon">✦</span>Framer</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <a
+            href="index.html"
+            class="nav-logo"
+            style="display: inline-block; margin-bottom: 4px"
+            >Perez<span style="color: var(--accent-mid)">.</span
+            ><small style="color: var(--text-muted); font-size: 0.75rem"
+              >portfolio</small
+            ></a
+          >
+          <p class="footer-copy">
+            © 2024 Godspower Emmanuel. Crafted with precision.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener"
+            class="footer-link"
+            aria-label="GitHub"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener"
+            class="footer-link"
+            aria-label="LinkedIn"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      /* === GLOBAL JS === */
+      /* =========================================================
+   PEREZ.PORTFOLIO — SHARED JAVASCRIPT
+   Dark Mode · Mobile Menu · Scroll Reveal · Stat Counter
+   ========================================================= */
+
+      document.addEventListener("DOMContentLoaded", () => {
+        /* ─── 1. DARK / LIGHT MODE ──────────────────────────────── */
+        const themeToggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        const savedTheme = localStorage.getItem("portfolio-theme") || "light";
+        root.setAttribute("data-theme", savedTheme);
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", () => {
+            const current = root.getAttribute("data-theme");
+            const next = current === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", next);
+            localStorage.setItem("portfolio-theme", next);
+            themeToggle.style.transform = "scale(0.85) rotate(30deg)";
+            setTimeout(() => {
+              themeToggle.style.transform = "";
+            }, 250);
+          });
+        }
+
+        /* ─── 2. NAVBAR SCROLL SHADOW ───────────────────────────── */
+        const navbar = document.getElementById("navbar");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (navbar)
+              navbar.classList.toggle("scrolled", window.scrollY > 20);
+          },
+          { passive: true },
+        );
+
+        // Active link on scroll (for single-page sections)
+        const sections = document.querySelectorAll("section[id]");
+        if (sections.length > 0) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${entry.target.id}`) {
+                      link.classList.add("active");
+                    }
+                  });
+                }
+              });
+            },
+            { threshold: 0.4 },
+          );
+          sections.forEach((s) => observer.observe(s));
+        }
+
+        /* ─── 3. MOBILE MENU ────────────────────────────────────── */
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+        function toggleMenu(open) {
+          if (!hamburger || !mobileMenu) return;
+          hamburger.classList.toggle("open", open);
+          mobileMenu.classList.toggle("open", open);
+          document.body.style.overflow = open ? "hidden" : "";
+        }
+
+        if (hamburger) {
+          hamburger.addEventListener("click", () =>
+            toggleMenu(!mobileMenu.classList.contains("open")),
+          );
+        }
+        mobileLinks.forEach((link) =>
+          link.addEventListener("click", () => toggleMenu(false)),
+        );
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") toggleMenu(false);
+        });
+
+        /* ─── 4. SCROLL REVEAL ──────────────────────────────────── */
+        const revealEls = document.querySelectorAll(".reveal");
+        const revealObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                revealObs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+        );
+        revealEls.forEach((el) => revealObs.observe(el));
+
+        // Timeline items
+        const timelineItems = document.querySelectorAll(".timeline-item");
+        const tlObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, i) => {
+              if (entry.isIntersecting) {
+                setTimeout(
+                  () => entry.target.classList.add("visible"),
+                  i * 120,
+                );
+                tlObs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 },
+        );
+        timelineItems.forEach((item) => tlObs.observe(item));
+
+        /* ─── 5. STAT COUNTER ANIMATION ─────────────────────────── */
+        const counters = document.querySelectorAll("[data-count]");
+        const countObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCount(entry.target);
+                countObs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+
+        function animateCount(el) {
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || "";
+          const duration = 1600;
+          const start = performance.now();
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+        }
+        counters.forEach((el) => countObs.observe(el));
+      });
+    </script>
+  </body>
+</html>
