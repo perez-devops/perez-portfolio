@@ -589,13 +589,6 @@
         overflow: hidden;
       }
 
-      .contact-cta::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      }
-
       .contact-cta h2 {
         color: #fff;
         margin-bottom: 16px;
@@ -1447,7 +1440,7 @@
         </div>
         <div class="footer-links">
           <a
-            href="https://github.com"
+            href="https://github.com/perez-devops"
             target="_blank"
             rel="noopener"
             class="footer-link"
@@ -1460,7 +1453,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/emmanuel-godspower-933ba0290/"
             target="_blank"
             rel="noopener"
             class="footer-link"
@@ -1637,8 +1630,29 @@
      • "Back to ₦ NGN" reset for non-Nigerian visitors
   ═══════════════════════════════════════════════════════════════ */
 
-      // ── Base prices in NGN — single source of truth ──
-      const BASE_NGN = { starter: 300_000, pro: 1_250_000 };
+      // ── Country-Specific Market Prices (Local Currency) ──
+      // Explicit pricing tailored to each country's market rate.
+      // Falls back to converting from DEFAULT_BASE_USD for unlisted countries.
+      const MARKET_PRICES = {
+        US: { starter: 1500, pro: 4500 }, // USD ($)
+        GB: { starter: 1200, pro: 3500 }, // GBP (£)
+        CA: { starter: 2000, pro: 6000 }, // CAD (C$)
+        AU: { starter: 2200, pro: 6800 }, // AUD (A$)
+        DE: { starter: 1400, pro: 4200 }, // EUR (€)
+        FR: { starter: 1400, pro: 4200 }, // EUR (€)
+        NL: { starter: 1400, pro: 4200 }, // EUR (€)
+        IT: { starter: 1200, pro: 3800 }, // EUR (€)
+        ES: { starter: 1200, pro: 3800 }, // EUR (€)
+        IE: { starter: 1400, pro: 4200 }, // EUR (€)
+        CH: { starter: 1500, pro: 4500 }, // CHF (Fr.)
+        NG: { starter: 1800000, pro: 5250000 }, // NGN (₦)
+        IN: { starter: 60000, pro: 180000 }, // INR (₹)
+        ZA: { starter: 18000, pro: 55000 }, // ZAR (R)
+        AE: { starter: 5500, pro: 16500 }, // AED
+        SA: { starter: 5600, pro: 17000 }, // SAR
+
+        DEFAULT_BASE_USD: { starter: 1500, pro: 4500 }, // fallback base
+      };
 
       // ── Country → Currency map (covers 60+ countries) ──
       // rate = how many units of this currency equal 1 NGN
@@ -2109,13 +2123,31 @@
         // Determine NGN → target rate
         // If live rates are available (base=NGN), use rates[currencyCode] directly
         // Otherwise fall back to static rateFromNGN
-        let rateToUse = cfg.rateFromNGN;
-        if (rates && rates[cfg.code] && rates._base === "NGN") {
-          rateToUse = rates[cfg.code];
-        }
+        let starterConverted = 0;
+        let proConverted = 0;
 
-        const starterConverted = BASE_NGN.starter * rateToUse;
-        const proConverted = BASE_NGN.pro * rateToUse;
+        // 1. Check for explicit market price overrides
+        if (MARKET_PRICES[countryCode]) {
+          starterConverted = MARKET_PRICES[countryCode].starter;
+          proConverted = MARKET_PRICES[countryCode].pro;
+        } else {
+          // 2. Fallback: Convert from Base USD using exchange rates
+          let rateFromUSDToLocal = 1;
+
+          if (rates && rates[cfg.code] && rates["USD"]) {
+            // Calculate relative rate: Local_Rate / USD_Rate
+            rateFromUSDToLocal = rates[cfg.code] / rates["USD"];
+          } else {
+            // Fallback to static rates defined in COUNTRY_CURRENCY relative to NGN
+            const usdStatic = COUNTRY_CURRENCY["US"].rateFromNGN;
+            rateFromUSDToLocal = cfg.rateFromNGN / usdStatic;
+          }
+
+          starterConverted =
+            MARKET_PRICES.DEFAULT_BASE_USD.starter * rateFromUSDToLocal;
+          proConverted =
+            MARKET_PRICES.DEFAULT_BASE_USD.pro * rateFromUSDToLocal;
+        }
 
         // ── Update currency pill ──
         document.getElementById("currencyFlag").textContent = cfg.flag;

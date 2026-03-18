@@ -589,12 +589,12 @@
         overflow: hidden;
       }
 
-      .contact-cta::before {
+      /* .contact-cta::before {
         content: "";
         position: absolute;
         inset: 0;
         background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      }
+      } */
 
       .contact-cta h2 {
         color: #fff;
@@ -1144,6 +1144,14 @@
           #450a0a 0%,
           #b91c1c 60%,
           #f87171 100%
+        );
+      }
+      .thumb-6 {
+        background: linear-gradient(
+          135deg,
+          #1a0d00 0%,
+          #7c3503 55%,
+          #ea6c0a 100%
         );
       }
 
@@ -1792,48 +1800,6 @@
 
             <div class="col-md-6 col-lg-4">
               <article
-                class="project-card reveal reveal-delay-2"
-                data-category="graphic"
-              >
-                <div class="project-thumb">
-                  <div class="project-thumb-inner thumb-3">Ax</div>
-                  <div class="project-overlay">
-                    <p>
-                      Full brand identity for a fitness brand — logo design,
-                      color system, typography, packaging, and comprehensive
-                      brand guidelines.
-                    </p>
-                    <div class="tech-tags">
-                      <span class="tech-tag">Illustrator</span>
-                      <span class="tech-tag">Photoshop</span>
-                      <span class="tech-tag">Brand Design</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-meta">
-                  <a
-                    href="#"
-                    class="project-link-icon"
-                    aria-label="View project"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 13L13 3M13 3H7M13 3v6"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <h3>Apex Brand Identity</h3>
-                  <p class="project-type">Graphic Design · 2024</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-              <article
                 class="project-card reveal reveal-delay-1"
                 data-category="uiux"
               >
@@ -1916,39 +1882,103 @@
               </article>
             </div>
 
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-              <div
-                class="reveal d-flex align-items-center justify-content-center w-100"
-                style="
-                  border: 2px dashed var(--border);
-                  border-radius: var(--radius-lg);
-                  padding: 32px;
-                  text-align: center;
-                  transition: var(--transition);
-                  cursor: pointer;
-                "
-                onmouseover="this.style.borderColor = 'var(--accent-mid)'"
-                onmouseout="this.style.borderColor = 'var(--border)'"
+            <div class="col-md-6 col-lg-4">
+              <article
+                class="project-card reveal reveal-delay-3"
+                data-category="graphic"
               >
-                <div>
-                  <div style="font-size: 2.4rem; margin-bottom: 12px">🚀</div>
-                  <p
+                <div class="project-thumb">
+                  <div class="project-thumb-inner thumb-6">PO</div>
+                  <div class="project-overlay">
+                    <p>
+                      The go-to app for Event Organizers, DJs, Creatives, and
+                      music enthusiasts. Create events, sell, manage, and
+                      authenticate tickets in-app. Engage your community with
+                      song requests, ensuring you vibe your way.
+                    </p>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Photoshop</span>
+                      <span class="tech-tag">Illustrator</span>
+                      <span class="tech-tag">After Effects</span>
+                      <span class="tech-tag">Premiere Pro</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-meta">
+                  <a
+                    href="POPLA DECK.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link-icon"
+                    aria-label="View POPLA Brand Guideline PDF"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3 13L13 3M13 3H7M13 3v6"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                  <h3>POPLA Brand Guideline</h3>
+                  <p class="project-type">Graphic Design · Brand Identity</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <article
+                class="project-card reveal reveal-delay-3"
+                data-category="uiux"
+              >
+                <div class="project-thumb">
+                  <div
+                    class="project-thumb-inner"
                     style="
-                      font-size: 0.9rem;
-                      color: var(--text-muted);
-                      margin-bottom: 16px;
+                      background-image: url('xcom_preview.png');
+                      background-size: cover;
+                      background-position: center;
+                      color: transparent;
                     "
                   >
-                    More projects in progress
-                  </p>
-                  <a
-                    href="contact.html"
-                    class="btn-outline"
-                    style="font-size: 0.85rem; padding: 10px 20px"
-                    >Let's collaborate →</a
-                  >
+                    XC
+                  </div>
+                  <div class="project-overlay">
+                    <p>
+                      A premium e-commerce interface designed for high-end tech
+                      electronics. Includes advanced filtering, interactive grid, responsive widgets, and complex user journeys dashboards.
+                    </p>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Visily</span>
+                      <span class="tech-tag">UI/UX Design</span>
+                      <span class="tech-tag">E-Commerce</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <div class="project-meta">
+                  <a
+                    href="https://app.visily.ai/projects/7ab60c13-2e74-4439-91e5-cf6cbba6a0b1/boards/2534240"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link-icon"
+                    aria-label="View X-Com E-Commerce Design on Visily"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3 13L13 3M13 3H7M13 3v6"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                  <h3>X-Com E-Commerce Design</h3>
+                  <p class="project-type">UI/UX Design · 2024</p>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -2258,10 +2288,10 @@
                 >Start a Conversation →</a
               >
               <a
-                href="mailto:hello@perezdev.com"
+                href="mailto:godspoweremmanuel304@gmail.com"
                 class="btn-outline"
                 style="border-color: rgba(255, 255, 255, 0.4); color: #fff"
-                >hello@perezdev.com</a
+                >godspoweremmanuel304@gmail.com</a
               >
             </div>
           </div>
@@ -2288,7 +2318,7 @@
         </div>
         <div class="footer-links">
           <a
-            href="https://github.com"
+            href="https://github.com/perez-devops"
             target="_blank"
             rel="noopener"
             class="footer-link"
@@ -2301,7 +2331,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/emmanuel-godspower-933ba0290/"
             target="_blank"
             rel="noopener"
             class="footer-link"
